@@ -13,9 +13,9 @@ function LoginPage() {
     localStorage.setItem(
       "user",
       JSON.stringify({
-        nom: userData.nom,
-        email: userData.email,
-        token: userData.token,
+        ...userData.data.client,
+        adresse: "",
+        token: userData.data.token,
       })
     );
     // Redirect to home page

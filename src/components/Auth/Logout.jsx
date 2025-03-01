@@ -31,7 +31,7 @@ const Logout = () => {
       localStorage.removeItem("user");
 
       // Redirect to login page
-      navigate("/login");
+      navigate("/signin");
     } catch (error) {
       console.error("Logout failed:", error);
       navigate("/signin"); // Redirect even if API fails

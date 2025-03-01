@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* global.css - Application-wide styles and theme variables */
+:root {
+  /* CSS variables will be dynamically set by Redux */
+  --bg-color: #ffffff;
+  --nav-bg-color: #4a148c;
+  --text-color: #000000;
+  --primary-color: #8961b3;
+  --hover-color: #7549a6;
+  --input-bg: #7549a6;
+  --input-placeholder: #b194cc;
+
+  /* Apply transitions to the entire app for smooth theme changes */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

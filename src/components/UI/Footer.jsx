@@ -1,111 +1,121 @@
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import { useSelector } from "react-redux";
+
 const Footer = () => {
+  const darkMode = useSelector((state) => state.theme.darkMode);
+
   return (
-    <footer className="bg-gray-900 text-gray-100">
-      <div className="container mx-auto px-4 py-8">
+    <footer
+      className="transition duration-300"
+      style={{
+        backgroundColor: "var(--bg-color)",
+        color: "var(--text-color)",
+      }}
+    >
+      <div className="container mx-auto px-6 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">LibriTech</h3>
-            <p className="text-sm text-gray-400">
+          <div>
+            <h3 className="text-xl font-semibold">LibriTech</h3>
+            <p className="text-sm mt-2">
               Empowering the future through innovative solutions.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="/about" className="text-gray-400 hover:text-white">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="text-gray-400 hover:text-white">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="/blog" className="text-gray-400 hover:text-white">
-                  Blog
-                </a>
-              </li>
+            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <ul className="mt-3 space-y-2">
+              {["About Us", "Services", "Blog"].map((item, index) => (
+                <li key={index}>
+                  <a
+                    href="#"
+                    className="transition"
+                    style={{
+                      color: "var(--primary-color)",
+                    }}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Support */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Support</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="/help" className="text-gray-400 hover:text-white">
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="text-gray-400 hover:text-white">
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a href="/faq" className="text-gray-400 hover:text-white">
-                  FAQ
-                </a>
-              </li>
+            <h3 className="text-lg font-semibold">Support</h3>
+            <ul className="mt-3 space-y-2">
+              {["Help Center", "Contact Us", "FAQ"].map((item, index) => (
+                <li key={index}>
+                  <a
+                    href="#"
+                    className="transition"
+                    style={{
+                      color: "var(--primary-color)",
+                    }}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="/privacy" className="text-gray-400 hover:text-white">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="/terms" className="text-gray-400 hover:text-white">
-                  Terms of Service
-                </a>
-              </li>
+            <h3 className="text-lg font-semibold">Legal</h3>
+            <ul className="mt-3 space-y-2">
+              {["Privacy Policy", "Terms of Service"].map((item, index) => (
+                <li key={index}>
+                  <a
+                    href="#"
+                    className="transition"
+                    style={{
+                      color: "var(--primary-color)",
+                    }}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} LibriTech. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+        <div
+          className="border-t mt-10 pt-6 flex flex-col md:flex-row justify-between items-center transition"
+          style={{
+            borderColor: "var(--primary-color)",
+          }}
+        >
+          <p className="text-sm">
+            © {new Date().getFullYear()} LibriTech. All rights reserved.
+          </p>
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            {[
+              { icon: <FaTwitter />, href: "https://twitter.com" },
+              { icon: <FaLinkedin />, href: "https://linkedin.com" },
+              { icon: <FaGithub />, href: "https://github.com" },
+            ].map((social, index) => (
               <a
-                href="https://twitter.com"
-                className="text-gray-400 hover:text-white"
-                aria-label="Twitter"
+                key={index}
+                href={social.href}
+                className="text-xl transition"
+                style={{
+                  color: "var(--primary-color)",
+                }}
+                aria-label="Social Link"
               >
-                Twitter
+                {social.icon}
               </a>
-              <a
-                href="https://linkedin.com"
-                className="text-gray-400 hover:text-white"
-                aria-label="LinkedIn"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com"
-                className="text-gray-400 hover:text-white"
-                aria-label="GitHub"
-              >
-                GitHub
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
 export default Footer;

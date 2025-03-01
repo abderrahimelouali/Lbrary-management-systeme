@@ -27,7 +27,7 @@ const Register = ({ onSuccess }) => {
       setAlert("Account created successfully!");
 
       // Call onSuccess prop if registration is successful
-      if (onSuccess) onSuccess();
+      onSuccess(response.data);
     } catch (error) {
       console.error("Registration failed:", error);
       setAlert(

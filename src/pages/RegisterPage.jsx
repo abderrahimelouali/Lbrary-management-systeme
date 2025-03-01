@@ -7,8 +7,15 @@ const RegisterPage = () => {
   const navigate = useNavigate();
 
   const handleRegisterSuccess = (userData) => {
-    // Save user data or token in localStorage
-    localStorage.setItem("user", JSON.stringify(userData));
+    // Save user data & token in localStorage
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        ...userData.data.client,
+        adresse: "",
+        token: userData.data.token,
+      })
+    );
 
     // Redirect to home page
     navigate("/");
